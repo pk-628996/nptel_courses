@@ -1,39 +1,36 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <!-- Basic Meta -->
+  <!-- 🔍 Basic SEO -->
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>NPTEL Courses | Free Online Learning with IIT Professors</title>
-  <meta name="description" content="Browse all NPTEL courses in Machine Learning, AI, Data Science, and more — taught by IIT and IISc professors. Updated automatically from JSON data.">
-  <meta name="keywords" content="NPTEL, IIT, online courses, free courses, data science, machine learning, artificial intelligence, big data, programming, engineering, NPTEL portal, course list">
+  <meta name="description" content="Explore top NPTEL courses in AI, Machine Learning, and Big Data — taught by IIT and IISc professors. Modern, responsive, SEO-optimized design.">
+  <meta name="keywords" content="NPTEL, IIT, online courses, free courses, AI, ML, data science, big data, programming, engineering">
   <meta name="author" content="Open Learning Hub">
 
-  <!-- Open Graph / Facebook -->
+  <!-- 🌐 Open Graph -->
   <meta property="og:type" content="website">
   <meta property="og:title" content="NPTEL Courses | Free Learning from IIT Professors">
-  <meta property="og:description" content="Explore NPTEL courses in AI, ML, Data Science, and more — automatically updated from JSON data.">
+  <meta property="og:description" content="Discover modern NPTEL courses in AI, ML, and Big Data with a beautiful responsive interface.">
   <meta property="og:image" content="https://nptel.ac.in/assets/images/nptel-logo.png">
   <meta property="og:url" content="https://yourdomain.com/nptel-courses">
   <meta property="og:site_name" content="NPTEL Course Explorer">
 
-  <!-- Twitter -->
+  <!-- 🐦 Twitter -->
   <meta name="twitter:card" content="summary_large_image">
   <meta name="twitter:title" content="NPTEL Courses | Free IIT Online Learning">
-  <meta name="twitter:description" content="Browse top NPTEL online courses in AI, ML, and Big Data with structured SEO-friendly design.">
+  <meta name="twitter:description" content="Browse top NPTEL courses in AI, ML, and Big Data with a modern UI.">
   <meta name="twitter:image" content="https://nptel.ac.in/assets/images/nptel-logo.png">
 
-  <!-- Favicon -->
-  <link rel="icon" href="https://nptel.ac.in/assets/images/favicon.ico" type="image/x-icon">
-
-  <!-- Structured Data: JSON-LD (for Google Rich Results) -->
+  <!-- 📘 JSON-LD Structured Data for Google Rich Results -->
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",
     "@type": "ItemList",
     "name": "NPTEL Courses",
-    "description": "List of NPTEL online courses from IITs and IISc.",
-    "numberOfItems": 3,
+    "description": "List of NPTEL online courses from IITs and IISc in AI, Machine Learning, and Big Data.",
+    "numberOfItems": 4,
     "itemListElement": [
       {
         "@type": "Course",
@@ -67,137 +64,215 @@
           "sameAs": "https://nptel.ac.in/"
         },
         "url": "https://nptel.ac.in/courses/106106226"
+      },
+      {
+        "@type": "Course",
+        "position": 4,
+        "name": "Big Data Analytics",
+        "provider": {
+          "@type": "Organization",
+          "name": "NPTEL",
+          "sameAs": "https://nptel.ac.in/"
+        },
+        "url": "https://nptel.ac.in/courses/106105175"
       }
     ]
   }
   </script>
 
-  <!-- Styles -->
+  <!-- 🎨 Styles -->
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
   <style>
+    :root {
+      --bg-color: #f4f6fa;
+      --card-bg: rgba(255, 255, 255, 0.75);
+      --primary: #2f6feb;
+      --text-dark: #1c1f26;
+      --text-light: #6b7280;
+      --radius: 18px;
+    }
+
     * {
       box-sizing: border-box;
-      font-family: 'Poppins', sans-serif;
+      font-family: 'Inter', sans-serif;
+      margin: 0;
+      padding: 0;
     }
 
     body {
-      background: #f5f6fa;
-      margin: 0;
-      padding: 20px;
+      background: linear-gradient(135deg, #f0f4ff 0%, #e4e9f7 100%);
+      color: var(--text-dark);
+      padding: 2rem;
+      min-height: 100vh;
     }
 
-    h1 {
+    header {
       text-align: center;
-      color: #222;
+      margin-bottom: 2rem;
     }
 
-    .course-container {
-      display: grid;
-      grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
-      gap: 20px;
-      margin-top: 30px;
+    header h1 {
+      font-size: 2rem;
+      font-weight: 700;
+      background: linear-gradient(to right, #0078ff, #4f46e5);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      margin-bottom: 0.5rem;
     }
 
-    .course-card {
-      background: #fff;
-      border-radius: 15px;
-      box-shadow: 0 4px 15px rgba(0,0,0,0.1);
-      padding: 20px;
-      transition: transform 0.3s ease, box-shadow 0.3s ease;
-    }
-
-    .course-card:hover {
-      transform: translateY(-5px);
-      box-shadow: 0 6px 18px rgba(0,0,0,0.15);
-    }
-
-    .course-title {
-      font-size: 18px;
-      font-weight: 600;
-      color: #333;
-    }
-
-    .course-instructor {
-      font-size: 14px;
-      color: #666;
-      margin-top: 5px;
-    }
-
-    .course-desc {
-      margin-top: 10px;
-      color: #444;
-      font-size: 14px;
-    }
-
-    .course-link {
-      display: inline-block;
-      margin-top: 15px;
-      text-decoration: none;
-      background: #0078ff;
-      color: white;
-      padding: 8px 15px;
-      border-radius: 8px;
-      transition: background 0.3s;
-    }
-
-    .course-link:hover {
-      background: #005fcc;
+    header p {
+      color: var(--text-light);
+      font-size: 1rem;
     }
 
     .search-box {
       display: flex;
       justify-content: center;
-      margin-top: 10px;
+      margin: 1.5rem 0;
     }
 
     .search-box input {
-      padding: 10px 15px;
-      width: 300px;
-      border-radius: 10px;
-      border: 1px solid #ccc;
+      width: 100%;
+      max-width: 400px;
+      padding: 0.8rem 1rem;
+      border-radius: var(--radius);
+      border: 1px solid #d1d5db;
+      font-size: 1rem;
       outline: none;
+      transition: 0.3s ease;
+    }
+
+    .search-box input:focus {
+      border-color: var(--primary);
+      box-shadow: 0 0 0 3px rgba(47,111,235,0.15);
+    }
+
+    .course-container {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 1.5rem;
+    }
+
+    .course-card {
+      background: var(--card-bg);
+      border-radius: var(--radius);
+      backdrop-filter: blur(10px);
+      box-shadow: 0 8px 25px rgba(0,0,0,0.08);
+      padding: 1.5rem;
+      transition: all 0.3s ease;
+      border: 1px solid rgba(255,255,255,0.4);
+    }
+
+    .course-card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 12px 30px rgba(0,0,0,0.12);
+    }
+
+    .course-title {
+      font-size: 1.2rem;
+      font-weight: 600;
+      color: var(--text-dark);
+      margin-bottom: 0.5rem;
+    }
+
+    .course-instructor {
+      color: var(--text-light);
+      font-size: 0.9rem;
+      margin-bottom: 0.8rem;
+    }
+
+    .course-desc {
+      color: #374151;
+      font-size: 0.95rem;
+      margin-bottom: 1.2rem;
+      line-height: 1.4;
+    }
+
+    .course-link {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      background: var(--primary);
+      color: #fff;
+      padding: 0.6rem 1rem;
+      border-radius: 10px;
+      font-size: 0.9rem;
+      text-decoration: none;
+      transition: 0.3s ease;
+    }
+
+    .course-link:hover {
+      background: #1e50b5;
+    }
+
+    footer {
+      text-align: center;
+      color: var(--text-light);
+      margin-top: 2rem;
+      font-size: 0.85rem;
+    }
+
+    @media (max-width: 600px) {
+      header h1 {
+        font-size: 1.6rem;
+      }
+      .course-card {
+        padding: 1.2rem;
+      }
     }
   </style>
 </head>
 
 <body>
-  <h1>NPTEL Courses</h1>
+  <header>
+    <h1>NPTEL Course Explorer</h1>
+    <p>Discover free online IIT courses in AI, ML, Data Science, and Big Data.</p>
+  </header>
 
   <div class="search-box">
     <input type="text" id="search" placeholder="Search by title or instructor...">
   </div>
 
-  <div class="course-container" id="courses"></div>
+  <main class="course-container" id="courses"></main>
+
+  <footer>
+    © 2025 NPTEL Course Explorer | Data auto-generated for learning purposes.
+  </footer>
 
   <script>
-    // NPTEL course data (easily replaceable with external JSON)
     const nptelCourses = [
       {
         title: "Introduction to Machine Learning",
         instructor: "Prof. B. Ravindran",
-        description: "Learn the fundamentals of machine learning and its applications.",
+        description: "Learn the fundamentals of machine learning and its real-world applications in AI systems.",
         link: "https://nptel.ac.in/courses/106106202"
       },
       {
         title: "Data Structures and Algorithms",
         instructor: "Prof. Madhavan Mukund",
-        description: "Understand and implement core data structures efficiently.",
+        description: "Master essential data structures and algorithms to write efficient and optimized code.",
         link: "https://nptel.ac.in/courses/106102064"
       },
       {
         title: "Artificial Intelligence: Search Methods",
         instructor: "Prof. Deepak Khemani",
-        description: "Explore intelligent search techniques used in AI.",
+        description: "Explore intelligent search algorithms and reasoning techniques in AI.",
         link: "https://nptel.ac.in/courses/106106226"
+      },
+      {
+        title: "Big Data Analytics",
+        instructor: "Prof. Partha Pratim Roy",
+        description: "Understand big data frameworks and learn to handle massive datasets efficiently.",
+        link: "https://nptel.ac.in/courses/106105175"
       }
     ];
 
-    // Render function
     function renderCourses(courses) {
       const container = document.getElementById('courses');
       container.innerHTML = '';
 
       if (courses.length === 0) {
-        container.innerHTML = "<p style='text-align:center;color:#666;'>No courses found.</p>";
+        container.innerHTML = "<p style='text-align:center;color:#6b7280;'>No courses found.</p>";
         return;
       }
 
@@ -214,7 +289,6 @@
       });
     }
 
-    // Search
     document.getElementById('search').addEventListener('input', e => {
       const query = e.target.value.toLowerCase();
       const filtered = nptelCourses.filter(c =>
