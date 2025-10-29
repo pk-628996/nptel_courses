@@ -1,4 +1,32 @@
-<script type="application/ld+json">
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>NPTEL Courses | Free Online Learning</title>
+  <meta name="description" content="Explore categorized top NPTEL courses - programming, mathematics, AI, data science, spoken Sanskrit. IIT/IISc professors, modern responsive interface.">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <style>
+    body { background: #f4f6fa; color: #1c1f26; font-family: 'Inter', sans-serif; padding:2rem; }
+    header { text-align: center; margin-bottom: 2rem; }
+    header h1 { font-size: 2rem; font-weight: 700; margin-bottom: 0.5rem; }
+    header p { color: #6b7280; font-size: 1rem; }
+    .category { margin-bottom: 2.2rem; }
+    .cat-head { font-size: 1.3rem; font-weight:600; margin-bottom:1.2rem; color: #2f6feb; }
+    .search-box { display:flex; justify-content:center; margin: 1.5rem 0; }
+    .search-box input { width:100%; max-width:400px; padding:0.8rem 1rem; border-radius:10px; border:1px solid #d1d5db; font-size:1rem; }
+    .course-list {display:grid; grid-template-columns:repeat(auto-fit,minmax(260px,1fr)); gap:1.2rem;}
+    .course-card { background:#fff; border-radius: 14px; box-shadow:0 8px 25px rgba(0,0,0,0.05); padding:1.2rem 1rem; transition:0.3s; }
+    .course-card:hover { box-shadow:0 16px 32px rgba(47,111,235,0.11); }
+    .course-title { font-size: 1.05rem; font-weight:600; margin-bottom:0.32rem; }
+    .course-instructor { color:#6b7280; font-size:0.95rem; margin-bottom:0.45rem; }
+    .course-desc { color:#374151; font-size:0.92rem; margin-bottom:0.7rem; }
+    .course-link { background: #2f6feb; color:#fff; padding:0.48rem 0.82rem; border-radius:8px; text-decoration:none; font-size:0.92rem; }
+    .course-link:hover { background:#1e50b5; }
+    @media (max-width: 600px){header h1{font-size:1.3rem;} .course-card{padding:1rem;} .cat-head{font-size:1.07rem;} }
+    footer{text-align:center; color:#6b7280; margin-top:2rem; font-size:0.9rem;}
+  </style>
+  <script type="application/ld+json">
   {
     "@context": "https://schema.org",
     "@type": "ItemList",
@@ -108,3 +136,77 @@
     ]
   }
   </script>
+</head>
+<body>
+  <header>
+    <h1>NPTEL Course Explorer</h1>
+    <p>Categorized free online IIT courses: Programming, Mathematics, AI, Data Science, Sanskrit</p>
+  </header>
+  <div class="search-box">
+    <input type="text" id="search" placeholder="Search by title or instructor...">
+  </div>
+  <main id="main-courses"></main>
+  <footer>
+    © 2025 NPTEL Course Explorer | Data auto-generated for learning purposes.
+  </footer>
+  <script>
+    const categories = [
+      { name: "Programming", courses: [
+        {title:"Programming In Java, IIT Kharagpur", instructor:"Prof. Debasis Samanta", description:"#", link:"https://nptel.ac.in/courses/106105191"},
+        {title:"Introduction to Programming in C", instructor:"Prof. Satyadev Nandakumar", description:"No prior programming experience is assumed.", link:"https://nptel.ac.in/courses/106104128"},
+        {title:"Data Structures and Algorithms", instructor:"Prof. Madhavan Mukund", description:"Master essential data structures and algorithms.", link:"https://nptel.ac.in/courses/106102064"},
+        {title:"The Joy of Computing using Python", instructor: "Prof. Sudarshan Iyengar", description:"Creative coding and problem solving using Python.", link:"https://nptel.ac.in/courses/106106182"}
+      ] },
+      { name: "Mathematics", courses: [
+        {title:"Engineering Mathematics - I", instructor:"Prof. Jitendra Kumar", description:"Essential mathematics for engineers.", link:"https://nptel.ac.in/courses/111105121"},
+        {title:"Engineering Mathematics - II", instructor:"Prof. Jitendra Kumar", description:"Continuation of EM-I.", link:"https://nptel.ac.in/courses/111105134"},
+        {title:"Integral and Vector Calculus, IIT Kharagpur", instructor:"Prof. Hari Shankar Mahato", description:"#", link:"https://nptel.ac.in/courses/111105122"},
+        {title:"Calculus - II, IIT Guwahati", instructor:"Prof. M. Guru Prem Prasad, Prof. Arup Chattopadhyay", description:"#", link:"https://nptel.ac.in/courses/111103764"},
+        {title:"Basic Calculus for Engineers, Scientists and Economists, IIT Kanpur", instructor:"Prof. Joydeep Dutta", description:"#", link:"https://nptel.ac.in/courses/111104085"},
+        {title:"Basic Calculus 1 and 2, IIT Kanpur", instructor:"Prof. Parasar Mohanty", description:"Continuity, differentiability, integrability concepts.", link:"https://nptel.ac.in/courses/111104144"}
+      ] },
+      { name: "Artificial Intelligence / Data Science", courses: [
+        {title:"Introduction to Machine Learning", instructor:"Prof. B. Ravindran", description:"Machine learning foundations and applications.", link:"https://nptel.ac.in/courses/106106202"},
+        {title:"Artificial Intelligence: Search Methods", instructor:"Prof. Deepak Khemani", description:"Search algorithms and reasoning in AI.", link:"https://nptel.ac.in/courses/106106226"},
+        {title:"Big Data Analytics", instructor:"Prof. Partha Pratim Roy", description:"Big data frameworks and dataset handling.", link:"https://nptel.ac.in/courses/106105175"}
+      ] },
+      { name: "Spoken Sanskrit", courses: [
+        {title:"Introduction to Basic Spoken Sanskrit", instructor:"Prof. Anuradha Choudry", description:"Helpful for accessing Indian knowledge systems.", link:"https://nptel.ac.in/courses/109105135"},
+        {title:"Intermediate Level of Spoken Sanskrit", instructor:"Prof. Anuradha Choudry", description:"For deeper Sanskrit understanding.", link:"https://nptel.ac.in/courses/109105169"},
+        {title:"Advanced Level of Spoken Sanskrit", instructor:"Prof. Anuradha Choudry", description:"For advanced studies in Sanskrit texts.", link:"https://nptel.ac.in/courses/109105189"}
+      ] }
+    ];
+    function renderCourses(cats, query="") {
+      const main = document.getElementById('main-courses');
+      main.innerHTML = '';
+      cats.forEach(cat => {
+        const matches = cat.courses.filter(c =>
+          c.title.toLowerCase().includes(query) ||
+          c.instructor.toLowerCase().includes(query)
+        );
+        if (matches.length > 0) {
+          const section = document.createElement('section');
+          section.className = 'category';
+          section.innerHTML = `<div class="cat-head">${cat.name}</div>
+            <div class="course-list">
+              ${matches.map(c=>`
+              <div class="course-card">
+                <div class="course-title">${c.title}</div>
+                <div class="course-instructor">${c.instructor}</div>
+                <div class="course-desc">${c.description}</div>
+                <a class="course-link" href="${c.link}" target="_blank" rel="noopener">View Course</a>
+              </div>
+              `).join('')}
+            </div>`;
+          main.appendChild(section);
+        }
+      });
+      if(main.innerHTML==="") main.innerHTML="<p style='text-align:center;color:#6b7280;'>No courses found.</p>";
+    }
+    document.getElementById('search').addEventListener('input', e => {
+      renderCourses(categories, e.target.value.toLowerCase());
+    });
+    window.onload = () => renderCourses(categories);
+  </script>
+</body>
+</html>
